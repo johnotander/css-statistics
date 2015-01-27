@@ -53,6 +53,18 @@ describe('css-statistics', function() {
     });
   });
 
+  describe('background shorthand property', function() {
+    var stats;
+
+    before(function() {
+      stats = cssstats(fixture('background-shorthand'));
+    });
+
+    it('should be able to grab the background-color declaration', function() {
+      assert.equal(stats.aggregates.backgroundColor.total, 2);
+    });
+  });
+
   it('should be able to parse css and produce stats', function() {
     ['basscss', 'small', 'font-awesome', 'gridio', 'gridio-national-light'].forEach(function(stylesheet) {
       renderJson(stylesheet);

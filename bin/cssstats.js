@@ -2,6 +2,7 @@
 
 var program = require('commander');
 var cssstats = require('..');
+var dashboard = require('../cli/dashboard');
 var fs = require('fs');
 
 var version = '0.0.1'
@@ -22,11 +23,13 @@ program
 
     try {
       var css = fs.readFileSync(file, 'utf8');
-      console.log(JSON.stringify(cssstats(css), null, 2));
+      var stats = cssstats(css);
+      // console.log(JSON.stringify(stats, null, 2));
     } catch (e) {
       console.log('CSS Statistics encountered an error reading ' + file);
       console.log(e);
     }
+    dashboard(stats);
   });
 
 program.parse(process.argv);

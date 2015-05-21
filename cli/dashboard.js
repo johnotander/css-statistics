@@ -28,6 +28,10 @@ module.exports = function(data, options) {
     return selector.specificity_10;
   });
 
+  rulesetSizeData = data.rules.map(function(rule) {
+    return rule.declarations.length;
+  });
+
   var propertiesTable = grid.set(0, 0, 1, 1, contrib.table, {
     keys: true,
     fg: 'white',
@@ -95,7 +99,7 @@ module.exports = function(data, options) {
     y: specificityData
   }]);
 
-  var specificitySparkLine = grid.set(2, 0, 1, 3, contrib.sparkline, {
+  var sparkLines = grid.set(2, 0, 1, 3, contrib.sparkline, {
     label: '',
     tags: true,
     style: {
@@ -103,9 +107,9 @@ module.exports = function(data, options) {
     }
   });
 
-  specificitySparkLine.setData(
-    ['Specificity'], 
-    [specificityData]
+  sparkLines.setData(
+    ['Specificity', 'Ruleset Size'],
+    [specificityData, rulesetSizeData]
   );
 
   screen.render()

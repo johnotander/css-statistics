@@ -100,7 +100,7 @@ module.exports = function(data, options) {
   }]);
 
   var sparkLines = grid.set(2, 0, 1, 3, contrib.sparkline, {
-    label: '',
+    label: 'CSS Charts',
     tags: true,
     style: {
       fg: 'blue'

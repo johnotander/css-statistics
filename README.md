@@ -23,7 +23,19 @@ var obj = cssstats(css);
 
 ```sh
 npm i -g cssstats
+```
+
+Get stats as JSON:
+
+```sh
 cssstats file path/to/file.css > results.json
+```
+
+Get a stats report:
+
+```sh
+cssstats report path/to/file.css
+# Press Q, escape, or ctrl+c to exit
 ```
 
 ### Returned Object
